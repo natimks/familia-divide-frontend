@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container } from 'semantic-ui-react';
-import api from '../../services/api';
 
 import Header from '../../components/Header';
 import HeaderWithAddButton from '../../components/HeaderWithAddButton';
@@ -12,6 +11,8 @@ import {
   getLocalStorageUserId,
 } from '../../utils/storageUtils';
 import formatCurrency from '../../utils/numberUtils';
+
+import api from '../../services/api';
 
 import './style.css';
 
@@ -26,7 +27,7 @@ export default function Income() {
     api.get(`/users/${cpf}`).then((response) => {
       setIncomes(response.data.incomes);
     });
-  }, []);
+  }, [cpf]);
 
   async function handleDeleteIncome(idIncome) {
     try {

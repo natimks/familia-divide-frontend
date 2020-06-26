@@ -70,7 +70,7 @@ export default function Register() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button className='button' type='submit'>
+          <button className='button-primary' type='submit'>
             Cadastrar
           </button>
         </form>

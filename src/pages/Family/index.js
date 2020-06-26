@@ -23,7 +23,7 @@ export default function Family() {
       setUser(response.data);
       setFamily(response.data.users_family);
     });
-  }, []);
+  }, [cpf]);
 
   async function handleDeleteRelative(idRelative) {
     try {

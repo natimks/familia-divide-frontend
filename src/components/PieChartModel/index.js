@@ -78,7 +78,6 @@ const renderActiveShape = (props) => {
 };
 
 class PieChartModel extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/hqnrgxpj/';
   constructor() {
     super();
     this.state = {
@@ -94,7 +93,7 @@ class PieChartModel extends PureComponent {
 
   render() {
     return (
-      <PieChart width={400} height={400}>
+      <PieChart width={500} height={400}>
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}

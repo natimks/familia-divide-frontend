@@ -23,7 +23,7 @@ function getPieCharStruct(user) {
     totalExpensesAdmin
   );
 
-  pieChartInfo = addUserInformationToArray(
+  pieChartInfo = addUserInformationToPieCharArray(
     user.name,
     userExpensePay,
     pieChartInfo
@@ -41,18 +41,20 @@ function getPieCharStruct(user) {
         totalIncomes,
         totalExpensesAdmin
       );
-      pieChartInfo = addUserInformationToArray(
+      pieChartInfo = addUserInformationToPieCharArray(
         relative.name,
         userExpensePay,
         pieChartInfo
       );
+      relative.total_expenses_contribution = userExpensePay;
     });
   }
-
+  console.log('pie chart');
+  console.log(user);
   return pieChartInfo;
 }
 
-function addUserInformationToArray(name, value, array) {
+function addUserInformationToPieCharArray(name, value, array) {
   const userInfo = {
     name,
     value,
@@ -78,4 +80,46 @@ function calculateUserExpensePay(
   return userExpensePay;
 }
 
-export { getPieCharStruct };
+function getBarChartStruct(user) {
+  let barChartInfo = [];
+
+  let totalIncomesAdmin = getTotalFromUser(user, 'incomes');
+  let totalExpensesAdmin = getTotalFromUser(user, 'expenses');
+  barChartInfo = addUserInformationToArrayBarChart(
+    user.name,
+    totalIncomesAdmin,
+    totalExpensesAdmin,
+    barChartInfo
+  );
+
+  if (user.users_family && user.users_family.length > 0) {
+    user.users_family.forEach((relative) => {
+      const totalIncomesUser = getTotalFromUser(relative, 'incomes');
+      const totalParticularExpensesUser = getTotalFromUser(
+        relative,
+        'expenses'
+      );
+      const totalExpensesUser =
+        relative.total_expenses_contribution + totalParticularExpensesUser;
+      console.log(totalParticularExpensesUser);
+      barChartInfo = addUserInformationToArrayBarChart(
+        relative.name,
+        totalIncomesUser,
+        totalExpensesUser,
+        barChartInfo
+      );
+    });
+  }
+
+  return barChartInfo;
+}
+function addUserInformationToArrayBarChart(name, incomes, expenses, array) {
+  const userInfo = {
+    name,
+    Rendas: incomes,
+    Despesas: expenses,
+  };
+  array.push(userInfo);
+  return array;
+}
+export { getPieCharStruct, getBarChartStruct };

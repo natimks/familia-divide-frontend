@@ -26,7 +26,7 @@ function Expense() {
     api.get(`/users/${cpf}`).then((response) => {
       setExpenses(response.data.expenses);
     });
-  }, []);
+  }, [cpf]);
 
   async function handleDeleteExpense(idExpende) {
     try {
