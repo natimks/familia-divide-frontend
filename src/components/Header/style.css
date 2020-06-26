@@ -1,0 +1,11 @@
+
+.button-header {
+    border: 0;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+

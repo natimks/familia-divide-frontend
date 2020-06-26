@@ -1,0 +1,11 @@
+.dashboard-container {
+  width: 100%;
+  max-width: 1180px;
+  padding: 0 30px;
+  margin: 32px auto;
+}
+
+.dashboard-container .title {
+  margin-top: 2rem;
+  margin-bottom: 24px;
+}

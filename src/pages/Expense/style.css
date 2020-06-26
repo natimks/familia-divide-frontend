@@ -1,0 +1,11 @@
+.expense-container {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.expense-container .title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
