@@ -4,8 +4,8 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import HeaderWithAddButton from '../../components/HeaderWithAddButton';
-
-import { ModalIncome } from './ModalIncome';
+import CardWithRemoveButton from '../../components/CardWithRemoveButton';
+import { ModalWithForm } from '../../components/ModalWithForm';
 
 import {
   getLocalStorageCpf,
@@ -14,7 +14,6 @@ import {
 import formatCurrency from '../../utils/numberUtils';
 
 import './style.css';
-import CardWithRemoveButton from '../../components/CardWithRemoveButton';
 
 export default function Income() {
   const [showModal, setShowModal] = useState(false);
@@ -65,7 +64,8 @@ export default function Income() {
 
   const getModalIncome = () => {
     return (
-      <ModalIncome
+      <ModalWithForm
+        header='Adicionar renda'
         submitFunction={handleAddIncome}
         showModalFunction={setShowModal}
         showModal={showModal}

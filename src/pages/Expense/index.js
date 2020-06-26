@@ -4,7 +4,7 @@ import { Container, Card } from 'semantic-ui-react';
 import Header from '../../components/Header';
 import HeaderWithAddButton from '../../components/HeaderWithAddButton';
 import CardWithRemoveButton from '../../components/CardWithRemoveButton';
-import { ModalExpense } from './ModalExpense';
+import { ModalWithForm } from '../../components/ModalWithForm';
 
 import {
   getLocalStorageCpf,
@@ -66,7 +66,8 @@ function Expense() {
 
   const getModalExpense = () => {
     return (
-      <ModalExpense
+      <ModalWithForm
+        header='Adicionar despesa'
         submitFunction={handleAddIncome}
         showModalFunction={setShowModal}
         showModal={showModal}
